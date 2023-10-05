@@ -1,0 +1,16 @@
+# Python program to rename all file
+# names in your directory 
+import os
+
+os.chdir('E:\\things to see\\cooking\\4 level\\New folder')
+print(os.getcwd())
+
+for count, f in enumerate(os.listdir()):
+	f_name, f_ext = os.path.splitext(f)
+	result = f_name.startswith('4 Levels of ')
+	if (f_name == 'main'):
+		print('skip')
+	elif(result):
+		f_name = f_name.strip('4 Levels of ')
+		new_name = f'{f_name}{f_ext}'
+		os.rename(f, new_name)
